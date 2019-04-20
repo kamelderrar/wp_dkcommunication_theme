@@ -31,7 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
         <a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-danger">
 
             <?php if ( 'container' == $container ) : ?>
             <div class="container">
@@ -53,6 +53,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                 <?php } else {
                     the_custom_logo();
+
                 } ?><!-- end custom logo -->
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
@@ -72,6 +73,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                         'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
                     )
                 ); ?>
+                <?php get_search_form(true); ?>
+
                 <?php if ( 'container' == $container ) : ?>
             </div><!-- .container -->
         <?php endif; ?>

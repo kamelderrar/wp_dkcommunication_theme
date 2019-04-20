@@ -2,3 +2,49 @@
 .site-info {
   display: none;
 }
+
+.wrapper_description {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.post {
+  .entry-meta {
+    display: none;
+  }
+}
+#right-sidebar {
+  li {
+    list-style-type: none;
+    a {
+      &:hover {
+        color: #8c0000 !important;
+      }
+      color: white !important;
+      text-decoration: none;
+      outline: none;
+
+    }
+  }
+}
+
+.entry-title {
+  a {
+    &:hover {
+      color: #8c0000 !important;
+    }
+    color: white !important;
+    text-decoration: none;
+    outline: none;
+
+  }
+}
+
+.btn:hover, input:hover[type=submit] {
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.43);
+}

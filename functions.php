@@ -15,6 +15,8 @@ function understrap_remove_scripts() {
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
+
 function theme_enqueue_styles() {
 
 	// Get the theme data
@@ -27,7 +29,19 @@ function theme_enqueue_styles() {
     }
 }
 
+/**
+ * Traductions du theme
+ */
 function add_child_theme_textdomain() {
     load_child_theme_textdomain( 'understrap-child', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
+
+/**
+ * Desactivation de la wpadminbar
+ * @return bool
+ */
+function wpc_show_admin_bar() {
+	return false;
+}
+add_filter('show_admin_bar' , 'wpc_show_admin_bar');
