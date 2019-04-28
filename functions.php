@@ -16,7 +16,9 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
-
+/**
+ *
+ */
 function theme_enqueue_styles() {
 
 	// Get the theme data
@@ -38,10 +40,26 @@ function add_child_theme_textdomain() {
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 
 /**
- * Desactivation de la wpadminbar
+ * do not show admin toolbar
  * @return bool
  */
 function wpc_show_admin_bar() {
 	return false;
 }
+
+// do not show admin toolbar
 add_filter('show_admin_bar' , 'wpc_show_admin_bar');
+
+// remove wp version
+remove_action("wp_head", "wp_generator");
+
+/**
+ * Do not show login errors
+ * @return null
+ */
+function wpc_login_errors() {
+	return null;
+}
+
+/** Do not show login errors */
+add_filter('login_errors',wpc_login_errors());
